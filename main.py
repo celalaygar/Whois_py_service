@@ -9,30 +9,31 @@ app = Flask(__name__)
 def get_domain_info(domain):
     """
     Belirtilen domain için WHOIS bilgilerini alır.
-    Domain kayıtlıysa detaylı bilgi, değilse "Boşta" durumu döner.
-    Hata durumunda "Boşta veya erişim hatası" döner.
+    Domain kayıtlıysa detaylı bilgi, değilse "Available" durumu döner.
+    Hata durumunda "Available or access error" döner.
+    Tüm yanıt anahtarları İngilizce olacaktır.
     """
     try:
         w = whois.whois(domain)
         if w.domain_name:
             # Domain kayıtlıysa detaylı bilgileri döndür
             return {
-                "Durum": "Kayıtlı",
+                "Status": "Registered",
                 "Domain": domain,
                 "Registrar": w.registrar,
-                "Oluşturulma Tarihi": str(w.creation_date), # Tarih nesnelerini string'e çeviriyoruz
-                "Bitiş Tarihi": str(w.expiration_date),
-                "Güncellenme Tarihi": str(w.updated_date),
-                "Name Servers": w.name_servers,
-                "E-posta": w.emails,
+                "CreationDate": str(w.creation_date), # Tarih nesnelerini string'e çeviriyoruz
+                "ExpirationDate": str(w.expiration_date),
+                "UpdatedDate": str(w.updated_date),
+                "NameServers": w.name_servers,
+                "Emails": w.emails,
             }
         else:
             # Domain boşta ise
-            return {"Durum": "Boşta", "Domain": domain}
+            return {"Status": "Available", "Domain": domain}
     except Exception as e:
         # WHOIS sorgusu sırasında bir hata oluşursa
-        print(f"Hata: {e}")
-        return {"Durum": "Boşta veya erişim hatası", "Domain": domain}
+        print(f"Error: {e}")
+        return {"Status": "Available or access error", "Domain": domain}
 
 # REST servisimiz için POST endpoint'i tanımlıyoruz
 @app.route('/check_domains', methods=['POST'])
@@ -47,7 +48,7 @@ def check_domains():
     # Gerekli alanların (siteName ve extensions) istekte olup olmadığını kontrol ediyoruz
     if not data or 'siteName' not in data or 'extensions' not in data:
         # Eksik veya hatalı istek durumunda hata mesajı döndürüyoruz
-        return jsonify({"error": "Geçersiz istek gövdesi. 'siteName' ve 'extensions' alanları gereklidir."}), 400
+        return jsonify({"error": "Invalid request body. 'siteName' and 'extensions' fields are required."}), 400
 
     site_name = data['siteName']
     extensions = data['extensions']
@@ -69,4 +70,3 @@ if __name__ == '__main__':
     # Uygulamayı hata ayıklama modunda çalıştırıyoruz (geliştirme için)
     # Gerçek bir ortamda debug=False yapmanız önerilir
     app.run(debug=True)
-
