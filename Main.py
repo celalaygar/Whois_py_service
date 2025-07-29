@@ -1,6 +1,7 @@
 # Gerekli kütüphaneleri içe aktarıyoruz
 from flask import Flask, request, jsonify
 import whois # WHOIS sorguları için kütüphane
+import os # Ortam değişkenlerine erişmek için os modülünü içe aktarıyoruz
 
 # Flask uygulamasını başlatıyoruz
 app = Flask(__name__)
@@ -69,5 +70,6 @@ def check_domains():
 if __name__ == '__main__':
     # Uygulamayı hata ayıklama modunda çalıştırıyoruz (geliştirme için)
     # Gerçek bir ortamda debug=False yapmanız önerilir
-    port = int(os.getenv("APP_PORT", 5000))  # .env dosyasından al, yoksa 5000
+    # Ortam değişkeninden portu al, yoksa 7102 varsayılanını kullan
+    port = int(os.getenv("APP_PORT", 7112))
     app.run(host='0.0.0.0', port=port, debug=True)
