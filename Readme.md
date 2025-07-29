@@ -84,6 +84,8 @@ The service will be accessible at `http://localhost:7112`.
 
 `POST /check_domains`
 
+`GET /get_extensions`
+
 ### Request Body
 
 ```json
@@ -137,6 +139,22 @@ curl -X POST \
 {
   "error": "Invalid request body. 'siteName' and 'extensions' fields are required."
 }
+```
+### Example curl Command
+
+```bash
+curl -X GET http://localhost:7112/get_extensions
+```
+#### For Registered Domains
+
+```json
+{
+  "supported_extensions": [
+    ".com", ".org", ".net", ".io", ".co", ".dev", ".app", ".xyz", ".ai",
+    ".tech", ".web", ".dev", ".cn", ".com.tr", ".tr", ".en", ".de"
+  ]
+}
+
 ```
 
 ### Example Full Response
