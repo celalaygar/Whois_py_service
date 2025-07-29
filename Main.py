@@ -69,4 +69,5 @@ def check_domains():
 if __name__ == '__main__':
     # Uygulamayı hata ayıklama modunda çalıştırıyoruz (geliştirme için)
     # Gerçek bir ortamda debug=False yapmanız önerilir
-    app.run(debug=True)
+    port = int(os.getenv("APP_PORT", 5000))  # .env dosyasından al, yoksa 5000
+    app.run(host='0.0.0.0', port=port, debug=True)
