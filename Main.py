@@ -66,6 +66,20 @@ def check_domains():
     # Tüm sonuçları JSON formatında döndürüyoruz
     return jsonify(results)
 
+
+# Desteklenen domain uzantılarının listesi
+# Bu liste, GET metodu tarafından döndürülecektir.
+SUPPORTED_EXTENSIONS = [".com", ".org", ".net", ".io", ".co", ".dev", ".app", ".xyz", ".ai", ".tech", ".web", ".dev", ".cn", ".com.tr", ".tr", ".en", ".de"]
+
+# Yeni GET metodu: Desteklenen uzantıları döndürür
+@app.route('/get_extensions', methods=['GET'])
+def get_extensions():
+    """
+    Servis tarafından desteklenen domain uzantılarının listesini döndürür.
+    """
+    return jsonify({"supported_extensions": SUPPORTED_EXTENSIONS})
+
+
 # Uygulamayı sadece bu dosya doğrudan çalıştırıldığında başlatıyoruz
 if __name__ == '__main__':
     # Uygulamayı hata ayıklama modunda çalıştırıyoruz (geliştirme için)
