@@ -69,7 +69,13 @@ def check_domains():
 
 # Desteklenen domain uzantılarının listesi
 # Bu liste, GET metodu tarafından döndürülecektir.
-SUPPORTED_EXTENSIONS = [".com", ".org", ".net", ".io", ".co", ".dev", ".app", ".xyz", ".ai", ".tech", ".web", ".dev", ".cn", ".com.tr", ".tr", ".en", ".de"]
+SUPPORTED_EXTENSIONS = [
+    ".com", ".org", ".net", ".io", ".co", ".dev", ".app", ".info", ".xyz",
+    ".ai", ".tech", ".blog", ".shop", ".store", ".site", ".online", ".cloud",
+    ".digital", ".email", ".group", ".live", ".media", ".news", ".solutions",
+    ".today", ".top", ".world", ".biz", ".mobi", ".name"
+]
+
 
 # Yeni GET metodu: Desteklenen uzantıları döndürür
 @app.route('/get_extensions', methods=['GET'])
