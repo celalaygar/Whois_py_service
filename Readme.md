@@ -145,7 +145,7 @@ curl -X POST \
 ```bash
 curl -X GET http://localhost:7112/get_extensions
 ```
-#### For Registered Domains
+#### Response For 200 OK
 
 ```json
 {
