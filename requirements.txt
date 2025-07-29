@@ -1,0 +1,2 @@
+Flask==2.3.3 # Veya kullandığınız Flask sürümü
+python-whois==0.8.0 # Veya kullandığınız python-whois sürümü
