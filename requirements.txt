@@ -1,2 +1,2 @@
 Flask==3.0.0
-python-whois==0.9.27
+python-whois==0.9.5
