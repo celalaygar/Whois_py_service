@@ -10,7 +10,7 @@ This project provides a simple Flask-based REST API to check WHOIS information f
 - **RESTful API**: Provides a POST endpoint for easy integration.
 - **Dockerized**: Ready to be deployed as a Docker container.
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 .
@@ -19,7 +19,7 @@ This project provides a simple Flask-based REST API to check WHOIS information f
 └── Dockerfile          # Docker build instructions
 ```
 
-## 🚀  Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
