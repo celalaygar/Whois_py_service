@@ -62,7 +62,7 @@ python Main.py
 
 The service will start on `http://0.0.0.0:7112`.
 
-### Docker Setup
+### ⚙️ Docker Setup
 
 Build the Docker image:
 
@@ -78,7 +78,7 @@ docker run -p 7112:7112 flask-whois-app
 
 The service will be accessible at `http://localhost:7112`.
 
-## API Usage
+## 👉 API Usage
 
 ### Endpoint
 
