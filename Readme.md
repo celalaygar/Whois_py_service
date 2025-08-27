@@ -3,7 +3,7 @@
 
 This project provides a simple Flask-based REST API to check WHOIS information for a list of domains. It takes a base `siteName` and a list of extensions, then constructs full domain names and queries their WHOIS records.
 
-## Features
+## 📱 Features
 
 - **WHOIS Lookup**: Retrieves registration details (creation date, expiration date, registrar, name servers, etc.) for domains.
 - **Domain Availability Check**: Identifies if a domain is registered or available.
@@ -19,7 +19,7 @@ This project provides a simple Flask-based REST API to check WHOIS information f
 └── Dockerfile          # Docker build instructions
 ```
 
-## Getting Started
+## 🚀  Getting Started
 
 ### Prerequisites
 
@@ -27,7 +27,7 @@ This project provides a simple Flask-based REST API to check WHOIS information f
 - pip (Python package installer)
 - Docker (if you plan to run it in a container)
 
-### Local Setup
+### ⚙️ Local Setup
 
 Clone the repository:
 
@@ -161,7 +161,7 @@ curl -X GET http://localhost:7112/get_extensions
 
 *(Omitted here for brevity, see your example)*
 
-## Nginx Configuration (Optional)
+## ⚙️ Nginx Configuration (Optional)
 
 ```nginx
 server {
